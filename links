@@ -1,0 +1,33 @@
+https://stackoverflow.com/questions/5016505/mysql-grant-all-privileges-on-database
+https://www.w3schools.com/php/php_mysql_select.asp
+
+CREATE TABLE classics ( author VARCHAR(128), title VARCHAR(128), type VARCHAR(16), year VARCHAR(4)) ENGINE InnoDB;
+SELECT * FROM `classics`;
+use php_mysql_db; ALTER TABLE classics ADD id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY;
+SELECT * FROM `classics`;
+ALTER TABLE classics RENAME pre1900;
+ALTER TABLE classics MODIFY year SMALLINT;
+ALTER TABLE classics ADD pages SMALLINT UNSIGNED;
+ALTER TABLE classics CHANGE type category VARCHAR(16);
+CREATE TABLE disponsable(trash INT); DESCRIBE disposable; DROP TABLE disposable; SHOW tables;
+
+ALTER TABLE classics ADD isbn CHAR(13); UPDATE classics SET isbn='9781598184891' WHERE year='1876'; UPDATE classics SET isbn='9780582506206' WHERE year='1811'; UPDATE classics SET isbn='9780517123201' WHERE year='1856'; UPDATE classics SET isbn='9780099533474' WHERE year='1841'; UPDATE classics SET isbn='9780192814968' WHERE year='1594';
+
+SELECT author, title FROM classics;
+SELECT title, isbn FROM classics;
+
+SELECT COUNT(*) FROM classics;
+SELECT DISTINCT author FROM classics;
+
+SELECT author, title FROM classics WHERE author="Mark Twain";
+
+UPDATE classics SET category='Classic Fiction' WHERE category='Fiction';
+
+SELECT author, title, year FROM classics ORDER BY author, year DESC;
+
+CREATE TABLE customers (
+	name VARCHAR(128),
+  	isbn VARCHAR(13),
+  	PRIMARY KEY (isbn)) ENGINE InnoDB; INSERT INTO customers(name, isbn) VALUES('Joe Bloggs', '9780099533474'); INSERT INTO customers(name, isbn) VALUES ('Mary Smith', '9780582506206'); INSERT INTO customers(name, isbn) VALUES('Jack Wilson', '9780517123201'); SELECT * FROM customers;
+
+SELECT name, author, title FROM customers, classics WHERE customers.isbn=classics.isbn;

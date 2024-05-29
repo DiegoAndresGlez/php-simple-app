@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  # PHP Application Service
+  php-app:
+    build:
+      # Build Dockerfile context on the current directory
+      context: .
+      dockerfile: Dockerfile 
+    volumes:
+      # local ./src directory contains PHP code
+      # Mount it to the to /var/www/html on the container
+      - ./src:/var/www/html
+    depends_on:
+      # Ensure MySQL is started before PHP
+      - database-container
+    ports:
+      # Let Apache Expose PHP to the web on 3000
+      - 3000:80 
+
+  # Database Container Service
+  database-container:
+    # Get MySQL image from Docker Hub
+    image: mysql:latest
+    environment:
+      # Set the MySQL root password
+      MYSQL_ROOT_PASSWORD: php_mysql_pass
+      # Create your MySQL database user
+      MYSQL_USER: php_test_user
+      # Create a sample MySQL database
+      MYSQL_DATABASE: php_mysql_db
+      #Add the password for the MySQL user
+      MYSQL_PASSWORD: php_user_pass
+    ports:
+      # MySQL port
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  # PhpMyAdmin Service
+  phpmyadmin:
+    image: phpmyadmin:latest
+    links:
+      # Link the MySQL service to allow phpmyadmin access to the MySQL server
+      - database-container
+    ports:
+      - "3001:80"
+    environment:
+    # PhpMyAdmin host is a MySQL Database container
+      PMA_HOST: database-container 
+      # Set the MySQL root password to open PhpMyAdmin on the web
+      MYSQL_ROOT_PASSWORD: php_mysql_pass
+volumes:
+  mysql-data:

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="container">
+        <nav class="nav-bar">
+            <h1>Práctica validación con js</h1>
+            <ul>
+                <li><a href="#registro_ref">Registro</a></li>
+                <li><a href="#facturacion_ref">Facturación</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="content-hero">
+               <h2>Lorem ipsum dolor sit</h2> 
+            </div>
+        </section>
+        <form class="formulario">
+            <h1 id="registro_ref">Registro</h2>
+            <hr/>
+            <section id="registro" class="section__container">
+                <div class="section__element">
+                    <h2>Correo electrónico</h2>
+                    <label class="campo__label" for="correo">Email: </label>
+                    <input class="campo__field" type="email" placeholder="ejemplo@gmail.com" id="correo" maxlength="100" required/>
+                    <p>NOTA: El correo deberá ser el de la persona a la cual se le enviará el registro y factura en caso de requerirla*</p>
+                    <hr/>
+
+                    <h2>Tipo de inscripción</h2>
+                    <label class="campo__label" for="tipo_de_inscripcion">Escoge un tipo de inscripción</label>
+                    <select id="tipo_de_inscripcion">
+                        <option value="Student">Student</option>
+                        <option value="Investigador" selected="selected">Investigador</option>
+                    </select>
+                    <hr/>
+                    <br/>
+
+                    <h2>Paper ID</h2>
+                    <label class="campo__label" for="paper1">ID_1 *Numbers Only*: </label>
+                    <input class="campo__field" type="text" placeholder="ej. 1" id="paper1">
+
+                    <div id="paper_2">
+                        <label class="campo__label" for="paper2">ID_2 *Numbers Only*: </label>
+                        <input class="campo__field" type="text" placeholder="ej. 2" id="paper2">
+                    </div>
+                    <hr/>
+
+                    <h2>Recibo de pago</h2>
+                    <label class="campo__label" for="num_folio">Número de folio: </label>
+                    <input class="campo__field" type="text" id="num_folio"/>
+
+                    <label class="campo__label" for="archivo_ficha">Ficha de depósito: </label>
+                    <input type="file" accept=".pdf" id="archivo_ficha">
+                    <p>Nota: Solo se aceptan pagos via transferencia electrónica.</p>
+                </div>
+            </section>
+
+
+            <h2 id="facturacion_ref">Facturación</h2>
+            <hr/>
+            <div style="margin-top: 2rem">
+                <label class="campo__label" for="generar_factura">¿Generar factura?</label>
+                <select id="generar_factura">
+                    <option value="Si" selected="selected">Si</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <section class="section__container">
+                <div id="facturacion" class="section__element">
+                    <p>Nota: En caso de requerir factura, favor de llenar la información solicitada en este apartado y agregar el
+                        archivo del RFC generado por el SAT.</p>
+
+                    <p>**NO SE EMITIRA FACTURA SI FALTAN DATOS O NO SE HAYA ADJUNTADO EL ARCHIVO DE RFC.</p>
+                
+                    <br/>
+                    <hr/>
+                    <label class="campo__label" for="rfc">RFC:</label>
+                    <input class="campo__field" type="text" id="rfc">
+                    <br/>
+
+                    <label class="campo__label" for="archivo_rfc">Adjuntar archivo RFC:</label>
+                    <input type="file" accept=".pdf" id="archivo_rfc">
+                    <br/>
+                    
+                    <p>*El archivo deberá medir menos de 3MB, y deberá tener diferente nombre.</p>
+                    <hr/>
+                    
+                    <br/>
+                    <label class="campo__label" for="nombre_razon">Nombre o Razón Social:</label>
+                    <input class="campo__field" type="text" id="nombre_razon">
+                    <br/>
+                    
+                    <label class="campo__label" for="domicilio">Domicilio: Calle, número exterior, interior:</label>
+                    <input class="campo__field" type="text" id="domicilio">
+                    <br/>
+                    
+                    <label class="campo__label" for="colonia">Colonia: </label>
+                    <input class="campo__field" type="text" id="colonia">
+                    <br/>
+                    
+                    <label class="campo__label" for="codigo_postal">Código Postal: </label>
+                    <input class="campo__field" type="text" id="codigo_postal">
+                    <br/>
+                    
+                    <label class="campo__label" for="ciudad">Ciudad: </label>
+                    <input class="campo__field" type="text" id="ciudad">
+                    <br/>
+                    
+                    <label class="campo__label" for="estado">Estado: </label>
+                    <input class="campo__field" type="text" id="estado">
+                    <br/>
+                </div>
+            </section>
+            <input style="margin-top: 2rem" type="submit" value="Registrar">
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 Diego Andrés González Beltrán</p> 
+    </footer>
+
+    <script src="js/formulario.js"></script>
+</body>
+</html>

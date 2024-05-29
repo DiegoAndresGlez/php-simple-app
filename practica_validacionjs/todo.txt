@@ -1,0 +1,5 @@
+[X] Terminar if else para investigador
+[X] Validar adjuntar archivo
+[X] Mejorar CSS
+[] Validar que IDs sean diferentes
+[] Hacer reporte
