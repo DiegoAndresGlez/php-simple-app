@@ -14,6 +14,14 @@ if (!$conn) {
 
 echo "Connected successfully to MySQL";
 
+function test()
+{
+  static $count = 0;
+  echo $count;
+}
+
+test();
+
 // Close connection
 mysqli_close($conn);
 ?>
